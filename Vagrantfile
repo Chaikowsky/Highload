@@ -2,13 +2,14 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
-  config.vm.synced "vagrant/", "/var/www/mysite.local"
+  config.vm.synced_folder "mysite.local/", "/var/www/mysite.local", create: true
+
  
-  config.vm.define "GB_Yii2" do |t|
+  config.vm.define "GB_Yii2-test" do |t|
   end
   
   config.vm.provider "virtualbox" do |v|
-    v.name = "GB_Yii2"
+    v.name = "GB_Yii2-test"
   end
  
   config.vm.network "private_network", ip: "192.168.2.10"
@@ -16,17 +17,19 @@ Vagrant.configure("2") do |config|
     vb.memory = "2048"
    end
  
-  config.vm.provision "shell", inline: <<-SHELL
-   yum update
-   yum install -y net-tools
-   yum install -y epel-release
-   yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-   yum install -y yum-utils
-   yum-config-manager --enable remi-php70
-   yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-fpm php-mbstring php-dom
-   yum install nano nginx
-   chkconfig nginx on
-   chkconfig php-fpm on
-   echo 0 > /sys/fs/selinux/enforce
-   SHELL
+  #config.vm.provision "shell", inline: <<-SHELL
+   #yum update
+   #yum install -y net-tools
+   #yum install -y epel-release
+   #yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+   #yum install -y yum-utils
+   #yum install -y nginx
+   #yum install -y php70
+   #yum install -y php70-php-fpm
+   #yum install -y nano
+   #yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-fpm php-mbstring php-dom
+   #chkconfig nginx on
+   #chkconfig php-fpm on
+   #echo 0 > /sys/fs/selinux/enforce
+   #SHELL
 end

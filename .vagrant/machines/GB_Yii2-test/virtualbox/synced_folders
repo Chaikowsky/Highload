@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/denis/github/Highload","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}},"virtualbox":{"/var/www/mysite.local":{"create":true,"guestpath":"/var/www/mysite.local","hostpath":"/Users/denis/github/Highload/mysite.local","disabled":false,"__vagrantfile":true}}}

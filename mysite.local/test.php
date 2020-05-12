@@ -2,9 +2,9 @@
 $time1 = time();
 require_once('log.php');
 
-if(empty($_SERVER['DOCUMENT_ROOT']))
+if(empty($_SERVER['DOCUMENT_ROOT'])){
 	$_SERVER['DOCUMENT_ROOT'] = '/var/www/mysite.local';
-
+}
 class test{
 	public $prop = 123;
 }
